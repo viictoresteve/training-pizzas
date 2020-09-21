@@ -1,0 +1,15 @@
+{
+  "chefs": [
+    {
+      "id": 1,
+      "name": "Pops"
+    }
+  ],
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "some comment",
+      "chef": 1
+    }
+  ]
+}

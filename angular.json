@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "training-pizzas"
+    }
+  },
+  "defaultProject": "training-pizzas",
+  "cli": {
+    "analytics": "5116b214-b2c2-49da-ab5c-d700308773e6"
+  }
 }

@@ -1,0 +1,11 @@
+{
+  "chefs": [{
+    "id": 1,
+    "name": "Pops"
+  }],
+  "vehicles": [{
+    "id": 1,
+    "name": "some comment",
+    "chef": 1
+  }]
+}

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Timeline } from 'vis-timeline/peer';
+import { DataSet } from 'vis-data';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'training-pizzas';
+
+  ngOnInit() {
+    
+
+  }
 }

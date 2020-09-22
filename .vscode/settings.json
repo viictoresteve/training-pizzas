@@ -1,3 +1,20 @@
 {
-    "compile-hero.disable-compile-files-on-did-save-code": false
+    "files.autoSave": "onFocusChange",
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "vsicons.projectDetection.autoReload": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    // "editor.fontFamily": "'Noto Mono', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "breadcrumbs.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.enableSmartCommit": true,
+    "java.home": "/usr/lib/jvm/java-8-oracle",
+    // "editor.fontLigatures": true,
+    "editor.fontFamily": "'Fira Code', 'Noto Mono', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    // "editor.fontWeight": "300", // Light
+    // "editor.fontWeight": "400", // Regular
+    // "editor.fontWeight": "500", // Medium
+    // "editor.fontWeight": "600" // Bold
 }

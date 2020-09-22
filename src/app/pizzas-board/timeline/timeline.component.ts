@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataSet } from 'vis-data';
 import { Timeline } from 'vis-timeline';
 import * as moment from 'moment';
-import { group } from 'console';
 
 @Component({
   selector: 'app-timeline',
@@ -23,9 +22,10 @@ export class TimelineComponent implements OnInit {
   }
 
   generateTL(): void {
+    const now = moment().minutes(0).seconds(0).milliseconds(0);
 
     // create groups to highlight groupUpdate
-    let groups = [];
+    const groups = [];
     this.chefs.forEach(chef => {
       groups.push({
         id: chef.id,
@@ -33,43 +33,36 @@ export class TimelineComponent implements OnInit {
       });
     });
 
-    console.log('gps', groups);
 
 
-    let items = [];
+    const items = [];
 
 
     this.vehicles.forEach(vehicle => {
+      const start = now.clone().add(Math.random() * 200, 'hours');
+      const group = Math.floor(Math.random() * groups.length);
+
       items.push({
         id: vehicle.id,
         content: vehicle.name,
-        start: this.randomDate(new Date(2012, 0, 1), new Date()),
-        end: this.randomDate(new Date(2012, 0, 1), new Date()),
+        start,
         // tslint:disable-next-line: radix
-        group: parseInt((Math.random() * groups.length).toString())
+        group
       });
     });
 
-    console.log('items', items);
-
     var options = {
-      autoResize: true,
-      width: '100%',
-      height: '750px'
+      editable: false,
+      stack: true,
+      verticalScroll: true,
+      groupOrder: 'id'
     };
-
 
     const container = document.getElementById('visualization');
     if (container) {
       const timeline = new Timeline(container, items, groups, options);
+      console.log(timeline);
+
     }
-
-
-
   }
-
-  randomDate(start, end) {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-  }
-
 }

@@ -2,7 +2,7 @@ import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vehicle } from './models/vehicle';
-import { VehiclesService } from './vehicles.service';
+import { VehiclesEntityService } from './vehicles-entity.service';
 
 @Component({
   selector: 'app-pizzas-board',
@@ -14,25 +14,25 @@ export class PizzasBoardComponent implements OnInit {
   vehicles: any;
   vehicles$: Observable<Vehicle[]>;
 
-  constructor(private vehiclesService: VehiclesService) { }
+  constructor(private vehiclesService: VehiclesEntityService) { }
 
   ngOnInit(): void {
 
-    // this.vehicles$ = this.vehiclesService.entities$.pipe(map(x => {
-    //   console.log('ioouu', x);
-    //   return x;
+    this.vehicles$ = this.vehiclesService.entities$.pipe(map(x => {
+      console.log('ioouu', x);
+      return x;
 
-    // }));
+    }));
     console.log('veh', this.vehicles$);
 
-    this.vehiclesService.getChefs().subscribe(res => {
-      this.chefs = res;
-      return this.chefs;
-    });
-    this.vehiclesService.getVehicles().subscribe(res => {
-      this.vehicles = res;
-      return this.vehicles;
-    });
+    // this.vehiclesService.getChefs().subscribe(res => {
+    //   this.chefs = res;
+    //   return this.chefs;
+    // });
+    // this.vehiclesService.getVehicles().subscribe(res => {
+    //   this.vehicles = res;
+    //   return this.vehicles;
+    // });
   }
 
 }

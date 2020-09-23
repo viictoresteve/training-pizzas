@@ -3,7 +3,7 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EntityDataModule } from '@ngrx/data';
+import { EntityDataService, EntityDefinitionService, EntityMetadataMap, EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,16 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { VehiclesHttpService } from './vehicles-board/services/vehicles-http.service';
 import { VehiclesEntityService } from './vehicles-board/vehicles-entity.service';
 import { VehiclesResolver } from './vehicles-board/services/vehicles.resolver';
+
+
+const entityMetadata: EntityMetadataMap = {
+  Vehicle: {
+    entityDispatcherOptions: {
+      optimisticUpdate: true
+    }
+  }
+};
+
 
 @NgModule({
   declarations: [
@@ -60,4 +70,14 @@ import { VehiclesResolver } from './vehicles-board/services/vehicles.resolver';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private eds: EntityDefinitionService,
+              private entityDataService: EntityDataService,
+              private vehiclesDataService: VehiclesDataService) {
+    eds.registerMetadataMap(entityMetadata);
+
+    entityDataService.registerService('Vehicle', vehiclesDataService);
+
+  }
+
+}

@@ -2,7 +2,7 @@ import { tap, first, filter } from 'rxjs/operators';
 import { Resolve } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { VehiclesEntityService } from '../timeline/vehicle-entity.service';
+import { VehiclesEntityService } from '../vehicles-entity.service';
 
 
 @Injectable()

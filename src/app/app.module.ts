@@ -1,14 +1,17 @@
+import { EntityCollectionServiceElementsFactory, EntityDispatcherFactory } from '@ngrx/data';
+import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PizzasBoardComponent } from './pizzas-board/pizzas-board.component';
-import { ChefsComponent } from './pizzas-board/chefs/chefs.component';
-import { TimelineComponent } from './pizzas-board/timeline/timeline.component';
-import { PizzasService } from './pizzas-board/pizzas.service';
+import { PizzasBoardComponent } from './vehicles-board/vehicles-board.component';
+import { ChefsComponent } from './vehicles-board/chefs/chefs.component';
+import { TimelineComponent } from './vehicles-board/timeline/timeline.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { VehiclesService } from './vehicles-board/vehicles.service';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,20 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    StoreModule.forRoot(reducers)
+    // , {
+    //     metaReducers,
+    //     runtimeChecks : {
+    //         strictStateImmutability: true,
+    //         strictActionImmutability: true,
+    //         strictActionSerializability: true,
+    //         strictStateSerializability: true
+    //     }
+    // })
   ],
-  providers: [PizzasService],
+  providers: [VehiclesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

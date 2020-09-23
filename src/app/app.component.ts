@@ -1,6 +1,6 @@
+import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
-import { Timeline } from 'vis-timeline/peer';
-import { DataSet } from 'vis-data';
+import { AppState } from './reducers';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,14 @@ export class AppComponent {
   title = 'training-pizzas';
 
   ngOnInit() {
-    
+
+    const vehicles = localStorage.getItem('vehicles');
+
+    if (vehicles) {
+      // this.store.dispatch()
+    }
+  }
+  constructor(private store: Store<AppState>) {
 
   }
 }

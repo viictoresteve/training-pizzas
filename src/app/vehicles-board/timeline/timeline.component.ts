@@ -33,10 +33,7 @@ export class TimelineComponent implements OnInit {
       });
     });
 
-
-
     const items = [];
-
 
     this.vehicles.forEach(vehicle => {
       const start = now.clone().add(Math.random() * 200, 'hours');

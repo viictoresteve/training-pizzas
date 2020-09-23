@@ -62,7 +62,8 @@ const entityMetadata: EntityMetadataMap = {
     EffectsModule.forRoot([]),
 
   ],
-  providers: [VehiclesService,
+  providers: [
+    VehiclesService,
     VehiclesHttpService,
     VehiclesEntityService,
     VehiclesResolver,
@@ -72,8 +73,8 @@ const entityMetadata: EntityMetadataMap = {
 })
 export class AppModule {
   constructor(private eds: EntityDefinitionService,
-              private entityDataService: EntityDataService,
-              private vehiclesDataService: VehiclesDataService) {
+    private entityDataService: EntityDataService,
+    private vehiclesDataService: VehiclesDataService) {
     eds.registerMetadataMap(entityMetadata);
 
     entityDataService.registerService('Vehicle', vehiclesDataService);

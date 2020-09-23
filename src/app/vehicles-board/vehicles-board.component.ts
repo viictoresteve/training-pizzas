@@ -21,7 +21,6 @@ export class PizzasBoardComponent implements OnInit {
     this.vehicles$ = this.vehiclesService.entities$.pipe(map(x => {
       console.log('ioouu', x);
       return x;
-
     }));
     console.log('veh', this.vehicles$);
 

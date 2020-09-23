@@ -14,9 +14,15 @@ export class VehiclesHttpService {
     }
 
     findAllVehicles(): Observable<Vehicle[]> {
-        return this.http.get('/api/vehicles')
+        console.log('httpservice ');
+
+        return this.http.get('localhost:3000/vehicles')
             .pipe(
-                map(res => res['payload'])
+                map(res => {
+                    console.log('inside func', res);
+
+                    return res['payload'];
+                })
             );
     }
 

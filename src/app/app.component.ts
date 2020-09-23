@@ -13,9 +13,9 @@ export class AppComponent {
   ngOnInit() {
 
     const vehicles = localStorage.getItem('vehicles');
+    console.log('vehicles? XD', vehicles);
 
     if (vehicles) {
-      // this.store.dispatch()
     }
   }
   constructor(private store: Store<AppState>) {

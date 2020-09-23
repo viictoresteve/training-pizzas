@@ -1,3 +1,4 @@
+import { VehicleEffects } from './vehicles-board/effects/vehicle.effects';
 import { VehiclesDataService } from './vehicles-board/services/vehicles-data.service';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,6 @@ import { ChefsComponent } from './vehicles-board/chefs/chefs.component';
 import { TimelineComponent } from './vehicles-board/timeline/timeline.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { VehiclesService } from './vehicles-board/vehicles.service';
 import { environment } from 'src/environments/environment';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { VehiclesHttpService } from './vehicles-board/services/vehicles-http.service';
@@ -61,11 +61,10 @@ const entityMetadata: EntityMetadataMap = {
       routerState: RouterState.Minimal
     }),
     EntityDataModule.forRoot({}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([VehicleEffects]),
 
   ],
   providers: [
-    VehiclesService,
     VehiclesHttpService,
     VehiclesEntityService,
     VehiclesResolver,

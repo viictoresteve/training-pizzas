@@ -13,11 +13,8 @@ export class VehiclesDataService extends DefaultDataService<Vehicle> {
     }
 
     getAll(): Observable<Vehicle[]> {
-        console.log('vehicles-data');
         return this.http.get('/vehicles')
             .pipe(map(res => {
-                console.log('dataservice,', res);
-
                 return res["payload"];
             }
             ));

@@ -2,7 +2,7 @@ import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { Vehicle } from './vehicles-board/models/vehicle';
 import { Observable } from 'rxjs';
-import { AddItemAction } from './vehicles-board/vehicles.actions';
+import { AddItemAction, GetItemsAction } from './vehicles-board/vehicles.actions';
 import { v4 as uuid } from 'uuid';
 import { AppState } from './vehicles-board/models/app-state';
 @Component({
@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'training-pizzas';
 
   vehicleItems$: Observable<Array<Vehicle>>;
-
+  error$: Observable<Error>;
   vehicleItem: Vehicle = {
     name: 'Lamborghini Huracan'
   }
@@ -26,14 +26,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.vehicleItems$ = this.store.select(store => {
-      console.log('inside select', store.vehicle);
-      return store.vehicle;
+      return store.vehicle.list;
     }
     );
-    setTimeout(() => {
-      this.addItem();
-    }, 2000);
-    console.log('vehicles? XD', this.vehicleItems$);
+    this.error$ = this.store.select(store => store.vehicle.error);
+    this.store.dispatch(new GetItemsAction());
   }
 
   addItem() {

@@ -1,5 +1,5 @@
-import { Vehicle } from './vehicle';
+import { VehicleState } from './../reducers/vehicles-reducer';
 
 export interface AppState {
-    readonly vehicle: Array<Vehicle>;
+    readonly vehicle: VehicleState;
 }

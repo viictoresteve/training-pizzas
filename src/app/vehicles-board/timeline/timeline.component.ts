@@ -58,7 +58,6 @@ export class TimelineComponent implements OnInit {
     const container = document.getElementById('visualization');
     if (container) {
       const timeline = new Timeline(container, items, groups, options);
-      console.log(timeline);
 
     }
   }

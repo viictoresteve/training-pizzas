@@ -1,6 +1,7 @@
 module.exports = function () {
     var Faker = require("faker");
     var _ = require("lodash");
+
     return {
         chefs: _.times(15, function (n) {
             return {
@@ -12,7 +13,7 @@ module.exports = function () {
         vehicles: _.times(45, function (n) {
             return {
                 id: n,
-                name: Faker.vehicle.vehicle(),
+                name: Faker.vehicle.vehicle()
             }
         })
     }

@@ -9,19 +9,20 @@ import { Vehicle } from '../models/vehicle';
 
 @Injectable()
 export class VehiclesHttpService {
+
+    private API_URL = 'http://localhost:3000/';
     constructor(private http: HttpClient) {
 
     }
 
-    findAllVehicles(): Observable<Vehicle[]> {
-        console.log('httpservice ');
+    getVehicles(): Observable<Vehicle[]> {
 
-        return this.http.get('localhost:3000/vehicles')
+        return this.http.get<Vehicle[]>(this.API_URL + 'vehicles')
             .pipe(
                 map(res => {
-                    console.log('inside func', res);
+                    console.log('getVehicles(), ', res);
 
-                    return res['payload'];
+                    return res;
                 })
             );
     }

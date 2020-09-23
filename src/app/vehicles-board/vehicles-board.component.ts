@@ -19,10 +19,8 @@ export class PizzasBoardComponent implements OnInit {
   ngOnInit(): void {
 
     this.vehicles$ = this.vehiclesService.entities$.pipe(map(x => {
-      console.log('ioouu', x);
       return x;
     }));
-    console.log('veh', this.vehicles$);
 
     // this.vehiclesService.getChefs().subscribe(res => {
     //   this.chefs = res;

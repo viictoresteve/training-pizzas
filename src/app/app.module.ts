@@ -13,12 +13,12 @@ import { TimelineComponent } from './vehicles-board/timeline/timeline.component'
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { VehiclesService } from './vehicles-board/vehicles.service';
-import { reducers } from './reducers';
 import { environment } from 'src/environments/environment';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { VehiclesHttpService } from './vehicles-board/services/vehicles-http.service';
 import { VehiclesEntityService } from './vehicles-board/vehicles-entity.service';
 import { VehiclesResolver } from './vehicles-board/services/vehicles.resolver';
+import { VehicleReducer } from './vehicles-board/reducers/vehicles-reducer';
 
 
 const entityMetadata: EntityMetadataMap = {
@@ -42,7 +42,9 @@ const entityMetadata: EntityMetadataMap = {
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot({
+      vehicle: VehicleReducer
+    })
     // , {
     //     metaReducers,
     //     runtimeChecks : {

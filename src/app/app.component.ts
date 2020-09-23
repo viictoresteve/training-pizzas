@@ -1,7 +1,10 @@
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
-import { AppState } from './reducers';
-
+import { Vehicle } from './vehicles-board/models/vehicle';
+import { Observable } from 'rxjs';
+import { AddItemAction } from './vehicles-board/vehicles.actions';
+import { v4 as uuid } from 'uuid';
+import { AppState } from './vehicles-board/models/app-state';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,15 +13,32 @@ import { AppState } from './reducers';
 export class AppComponent {
   title = 'training-pizzas';
 
-  ngOnInit() {
+  vehicleItems$: Observable<Array<Vehicle>>;
 
-    const vehicles = localStorage.getItem('vehicles');
-    console.log('vehicles? XD', vehicles);
-
-    if (vehicles) {
-    }
+  vehicleItem: Vehicle = {
+    name: 'Lamborghini Huracan'
   }
+
   constructor(private store: Store<AppState>) {
 
+  }
+
+
+  ngOnInit() {
+    this.vehicleItems$ = this.store.select(store => {
+      console.log('inside select', store.vehicle);
+      return store.vehicle;
+    }
+    );
+    setTimeout(() => {
+      this.addItem();
+    }, 2000);
+    console.log('vehicles? XD', this.vehicleItems$);
+  }
+
+  addItem() {
+    this.vehicleItem.id = uuid();
+    this.store.dispatch(new AddItemAction(this.vehicleItem));
+    this.vehicleItem = { name: '' };
   }
 }

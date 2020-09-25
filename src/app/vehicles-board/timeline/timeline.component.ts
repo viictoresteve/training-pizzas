@@ -64,15 +64,11 @@ export class TimelineComponent implements OnInit {
 
     var options = {
       width: '100%',
-      height: '300px',
-      margin: {
-        item: 20
-      }
     };
 
     const container = document.getElementById('visualization');
     if (container && items.length !== 0) {
-      const timeline = new Timeline(container, vehicles, options);
+      const timeline = new Timeline(container, vehicles, groups, options);
 
     }
   }

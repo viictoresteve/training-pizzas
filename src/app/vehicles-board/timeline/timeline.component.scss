@@ -4,15 +4,8 @@ html {
   font-size: 11pt;
 }
 
-div.vis-editable,
-div.vis-editable.vis-selected {
-  /* custom styling for editable items... */
-}
-
-div.vis-readonly,
-div.vis-readonly.vis-selected {
-  /* custom styling for readonly items... */
-  background-color: #ff4500;
-  border-color: red;
-  color: white;
+#visualization {
+  box-sizing: border-box;
+  width: 100%;
+  height: 300px;
 }

@@ -30,7 +30,6 @@ export class GetItemsSuccessAction implements Action {
     readonly type = VehicleActionTypes.GET_ITEMS_SUCCESS;
 
     constructor(public payload: Array<Vehicle>) {
-        console.log('payload success', payload);
 
     }
 

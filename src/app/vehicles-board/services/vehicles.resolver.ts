@@ -16,9 +16,9 @@ export class VehiclesResolver implements Resolve<boolean> {
 
         return this.vehiclesService.loaded$.pipe(
             tap(loaded => {
+                console.log('loaded', loaded);
                 
                 if (!loaded) {
-
                     this.vehiclesService.getAll();
                 }
             }),

@@ -13,8 +13,14 @@ module.exports = function () {
         vehicles: _.times(45, function (n) {
             return {
                 id: n,
-                name: Faker.vehicle.vehicle()
+                content: Faker.vehicle.vehicle(),
+                start: randomDate(new Date(2012, 0, 1), new Date()),
+                group: parseInt((Math.random() * 15))
             }
         })
     }
+}
+
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }

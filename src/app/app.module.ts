@@ -13,9 +13,9 @@ import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { VehiclesHttpService } from './vehicles-board/services/vehicles-http.service';
-import { VehiclesResolver } from './vehicles-board/services/vehicles.resolver';
 import { VehicleReducer } from './vehicles-board/reducers/vehicles-reducer';
 import { VehiclesBoardComponent } from './vehicles-board/vehicles-board.component';
+import { MechanicReducer } from './vehicles-board/reducers/mechanics-reducer';
 
 
 const entityMetadata: EntityMetadataMap = {
@@ -39,7 +39,8 @@ const entityMetadata: EntityMetadataMap = {
     HttpClientModule,
     CommonModule,
     StoreModule.forRoot({
-      vehicle: VehicleReducer
+      vehicle: VehicleReducer,
+      mechanic: MechanicReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot({
@@ -52,7 +53,6 @@ const entityMetadata: EntityMetadataMap = {
   ],
   providers: [
     VehiclesHttpService,
-    VehiclesResolver,
   ],
   bootstrap: [AppComponent]
 })

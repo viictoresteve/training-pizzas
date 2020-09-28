@@ -1,1 +1,6 @@
-<app-timeline *ngIf="this.vehicleItems$" [vehicleItems]="vehicleItems$"></app-timeline>
+
+<app-timeline 
+*ngIf="this.vehicleItems$ && this.mechanicItems$" 
+[vehicleItems]="vehicleItems$ | async" 
+[mechanicItems]="mechanicItems$ | async">
+</app-timeline>

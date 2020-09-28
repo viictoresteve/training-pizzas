@@ -2,24 +2,9 @@ import { Vehicle } from './models/vehicle';
 import { Action } from "@ngrx/store";
 
 export enum VehicleActionTypes {
-    ADD_ITEM = '[TIMELINE] Add Item',
-    DELETE_ITEM = '[TIMELINE] Delete Item',
     GET_ITEMS = '[TIMELINE] Get Items',
     GET_ITEMS_SUCCESS = '[TIMELINE] Get Items Success',
     GET_ITEMS_FAILURE = '[TIMELINE] Get Items Failure',
-}
-
-export class AddItemAction implements Action {
-    readonly type = VehicleActionTypes.ADD_ITEM;
-
-    constructor(public payload: Vehicle) {
-
-    }
-
-}
-export class DeleteItemAction implements Action {
-    readonly type = VehicleActionTypes.DELETE_ITEM;
-    constructor(public payload: string) { }
 }
 
 export class GetItemsAction implements Action {
@@ -40,5 +25,5 @@ export class GetItemsFailureAction implements Action {
     constructor(public payload: Error) { }
 }
 
-export type VehiclesAction = AddItemAction | DeleteItemAction | GetItemsAction | GetItemsSuccessAction |
+export type VehiclesAction = GetItemsAction | GetItemsSuccessAction |
     GetItemsFailureAction;

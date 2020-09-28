@@ -1,9 +1,7 @@
 
-export class Vehicle {
+export class Mechanic {
     id?: string;
     content: string;
-    start: string;
-    group: number;
 
     constructor() {
     }

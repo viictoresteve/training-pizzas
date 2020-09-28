@@ -77,7 +77,7 @@ export class TimelineComponent implements OnInit, OnChanges {
 
     const container = document.getElementById('visualization');
     if (container && items.length !== 0) {
-      const timeline = new Timeline(container, vehicles, groups, options);
+      const timeline = new Timeline(container, vehicles, options);
 
     }
   }

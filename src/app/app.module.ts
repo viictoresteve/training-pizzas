@@ -1,4 +1,4 @@
-import { VehicleEffects } from './vehicles-board/effects/vehicle.effects';
+import { TimelineEffects } from './vehicles-board/effects/timeline.effects';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -23,6 +23,11 @@ const entityMetadata: EntityMetadataMap = {
     entityDispatcherOptions: {
       optimisticUpdate: true
     }
+  },
+  Mechanic: {
+    entityDispatcherOptions: {
+      optimisticUpdate: true
+    }
   }
 };
 
@@ -43,12 +48,8 @@ const entityMetadata: EntityMetadataMap = {
       mechanic: MechanicReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot({
-      stateKey: 'router',
-      routerState: RouterState.Minimal
-    }),
     EntityDataModule.forRoot({}),
-    EffectsModule.forRoot([VehicleEffects]),
+    EffectsModule.forRoot([TimelineEffects]),
 
   ],
   providers: [

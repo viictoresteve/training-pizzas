@@ -19,7 +19,6 @@ export class GetMechanicsSuccessAction implements Action {
 
 export class GetMechanicsFailureAction implements Action {
     readonly type = MechanicActionTypes.GET_MECHANICS_FAILURE;
-
     constructor(public payload: Error) { }
 }
 

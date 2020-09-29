@@ -6,5 +6,6 @@ export class Vehicle {
     group: number;
 
     constructor() {
+
     }
 }

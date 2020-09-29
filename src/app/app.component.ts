@@ -6,12 +6,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'training-pizzas';
-
-
-  constructor() {
-  }
-
-  ngOnInit() {
-   
-  }
+  constructor() {}
 }

@@ -14,8 +14,6 @@ const initialState: MechanicState = {
 export function MechanicReducer(
     state: MechanicState = initialState,
     action: MechanicsAction) {
-    // console.log(state, action);
-
     switch (action.type) {
         case MechanicActionTypes.GET_MECHANICS:
             return { ...state };

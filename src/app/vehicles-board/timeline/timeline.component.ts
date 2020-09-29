@@ -48,7 +48,6 @@ export class TimelineComponent implements OnChanges {
     const options = {
       groupOrder: 'content',
       orientation: 'top',
-      editable: true,
     };
 
     if (container && vehicles.length !== 0 && mechanics.length !== 0) {

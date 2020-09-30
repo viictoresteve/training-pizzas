@@ -4,6 +4,7 @@ export class Vehicle {
     content: string;
     start: string;
     group: number;
+    end: string;
 
     constructor() {
 

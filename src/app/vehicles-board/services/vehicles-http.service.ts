@@ -10,16 +10,22 @@ import { Mechanic } from '../models/mechanic';
 
 @Injectable()
 export class VehiclesHttpService {
-
+    vehicles: Vehicle[];
+    mechanics: Mechanic[];
     private API_URL = 'http://localhost:3000/';
     constructor(private http: HttpClient) {
     }
     getVehicles(): Observable<Vehicle[]> {
-
+        this.vehicles = [];
         return this.http.get<Vehicle[]>(this.API_URL + 'vehicles')
             .pipe(
                 map(res => {
-                    return res;
+                    res.forEach(vehicle => {
+                        if (!(vehicle.start > vehicle.end)) {
+                            this.vehicles.push(vehicle);
+                        }
+                    });
+                    return this.vehicles;
                 })
             );
     }

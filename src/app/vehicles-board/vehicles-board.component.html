@@ -1,6 +1,6 @@
 
 <app-timeline 
-*ngIf="this.vehicleItems$ && this.mechanicItems$" 
+*ngIf="(this.vehicleItems$ | async) && (this.mechanicItems$ | async)"
 [vehicleItems]="vehicleItems$ | async" 
 [mechanicItems]="mechanicItems$ | async">
 </app-timeline>

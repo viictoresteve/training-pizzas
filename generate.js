@@ -12,7 +12,7 @@ module.exports = function () {
         }),
         vehicles: _.times(45, function (n) {
             return {
-                id: n,
+                id: 'Vehicle ' + n,
                 content: Faker.vehicle.vehicle(),
                 start: randomDate(new Date(2020, 0, 1), new Date()),
                 end: randomDate(new Date(2020, 3, 1), new Date()),

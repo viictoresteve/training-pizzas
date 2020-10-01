@@ -2,7 +2,7 @@ import { Mechanic } from './../models/mechanic';
 import { Timeline, DataGroup, DataGroupCollectionType } from 'vis-timeline';
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
-import { Observable } from 'rxjs';
+import { DataSet } from 'vis-data';
 
 @Component({
   selector: 'app-timeline',
@@ -10,44 +10,22 @@ import { Observable } from 'rxjs';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnChanges {
-  @Input() vehicleItems: Observable<Array<Vehicle>>;
-  @Input() mechanicItems: Observable<Array<Mechanic>>;
+  @Input() vehicleItems: Array<Vehicle>;
+  @Input() mechanicItems: Array<Mechanic>;
 
-  vehicles: Vehicle[];
-  mechanics: Mechanic[];
+  ngOnChanges(): void {
 
-  constructor() {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-
-    // doing one at a time because OBSERVABLES can resolve one at a time
-
-    if (changes.vehicleItems && changes.vehicleItems.currentValue.length > 0) {
-      this.vehicles = changes.vehicleItems.currentValue;
-    }
-    if (changes.mechanicItems && changes.mechanicItems.currentValue.length > 0) {
-      this.mechanics = changes.mechanicItems.currentValue;
-    }
-    if (this.vehicles && this.mechanics) {
-      this.generateTL(this.vehicles, this.mechanics);
+    if (this.vehicleItems && this.mechanicItems) {
+      this.generateTimeline(this.vehicleItems, this.mechanicItems);
     }
   }
 
-  generateTL(vehicles: Vehicle[], mechanics: Mechanic[]): void {
+  generateTimeline(vehicles: Vehicle[], mechanics: Mechanic[]): void {
     const container = document.getElementById('visualization');
-
-    // TIMELINE not getting items if in DATASET FORMAT (pending)
-    // let items = new DataSet([]);
-    // vehicles.forEach(vehicle => {
-    //   items.add(
-    //     vehicle
-    //   );
-    // });
 
     const options = {
       groupOrder: 'content',
-      orientation: 'top',
+      orientation: 'top'
     };
 
     if (container && vehicles.length !== 0 && mechanics.length !== 0) {

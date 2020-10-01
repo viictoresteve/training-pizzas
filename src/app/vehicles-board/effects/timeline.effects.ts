@@ -8,6 +8,9 @@ import { MechanicActionTypes, GetMechanicsSuccessAction, GetMechanicsFailureActi
 
 @Injectable()
 export class TimelineEffects {
+
+    constructor(private actions$: Actions, private vehiclesService: VehiclesHttpService) { }
+
     @Effect() loadVehicles = this.actions$.pipe(
         ofType<GetItemsAction>(VehicleActionTypes.GET_ITEMS),
         mergeMap(
@@ -17,11 +20,11 @@ export class TimelineEffects {
                     catchError(error => {
                         console.log('ERROR => ', error);
                         return of(new GetItemsFailureAction(error));
-
                     })
                 )
         )
     );
+
     @Effect() loadMechanics = this.actions$.pipe(
         ofType<GetMechanicsAction>(MechanicActionTypes.GET_MECHANICS),
         mergeMap(
@@ -31,11 +34,9 @@ export class TimelineEffects {
                     catchError(error => {
                         console.log('ERROR => ', error);
                         return of(new GetMechanicsFailureAction(error));
-
                     })
                 )
         )
     );
-    
-    constructor(private actions$: Actions, private vehiclesService: VehiclesHttpService) { }
+
 }

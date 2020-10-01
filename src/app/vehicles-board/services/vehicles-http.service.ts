@@ -15,22 +15,9 @@ export class VehiclesHttpService {
     constructor(private http: HttpClient) {
     }
     getVehicles(): Observable<Vehicle[]> {
-
-        return this.http.get<Vehicle[]>(this.API_URL + 'vehicles')
-            .pipe(
-                map(res => {
-                    return res;
-                })
-            );
+        return this.http.get<Vehicle[]>(this.API_URL + 'vehicles');
     }
     getMechanics(): Observable<Mechanic[]> {
-
-        return this.http.get<Mechanic[]>(this.API_URL + 'mechanics')
-            .pipe(
-                map(res => {
-                    return res;
-                })
-            );
+        return this.http.get<Mechanic[]>(this.API_URL + 'mechanics');
     }
-
 }

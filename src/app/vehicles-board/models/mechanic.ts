@@ -1,6 +1,6 @@
 
 export class Mechanic {
-    id?: string;
+    id: string;
     content: string;
 
     constructor() {

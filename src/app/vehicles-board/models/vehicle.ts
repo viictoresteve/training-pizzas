@@ -1,11 +1,7 @@
-
-export class Vehicle {
-    id?: string;
+export interface Vehicle {
+    id: string;
     content: string;
     start: string;
+    end: string;
     group: number;
-
-    constructor() {
-
-    }
 }

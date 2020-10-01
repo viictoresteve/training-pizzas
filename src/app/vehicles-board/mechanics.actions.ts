@@ -1,5 +1,5 @@
 import { Mechanic } from './models/mechanic';
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
 
 export enum MechanicActionTypes {
     GET_MECHANICS = '[TIMELINE] Get Mechanics',

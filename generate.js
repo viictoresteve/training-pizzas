@@ -14,8 +14,8 @@ module.exports = function () {
             return {
                 id: 'Vehicle ' + n,
                 content: Faker.vehicle.vehicle(),
-                start: randomDate(new Date(2020, 0, 1), new Date()),
-                end: randomDate(new Date(2020, 3, 1), new Date()),
+                start: randomDate(new Date(2020, 2, 17), new Date()),
+                end: randomDate(new Date(2020, 2, 30), new Date()),
                 group: parseInt((Math.random() * 15))
             }
         })

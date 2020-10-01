@@ -1,13 +1,14 @@
 import { Mechanic } from './../models/mechanic';
 import { Timeline, DataGroup, DataGroupCollectionType } from 'vis-timeline';
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Vehicle } from '../models/vehicle';
 import { DataSet } from 'vis-data';
 
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.scss']
+  styleUrls: ['./timeline.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TimelineComponent implements OnChanges {
   @Input() vehicleItems: Array<Vehicle>;
@@ -29,9 +30,7 @@ export class TimelineComponent implements OnChanges {
     };
 
     if (container && vehicles.length !== 0 && mechanics.length !== 0) {
-
       const timeline = new Timeline(container, vehicles, mechanics as DataGroupCollectionType, options);
-
     }
   }
 

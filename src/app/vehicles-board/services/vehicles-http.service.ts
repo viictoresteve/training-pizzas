@@ -10,7 +10,7 @@ import { Mechanic } from '../models/mechanic';
 
 @Injectable()
 export class VehiclesHttpService {
-
+    vehicles: Vehicle[];
     private API_URL = 'http://localhost:3000/';
     constructor(private http: HttpClient) {
     }

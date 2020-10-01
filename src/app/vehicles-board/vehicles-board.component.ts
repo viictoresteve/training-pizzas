@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Vehicle } from './models/vehicle';
 import { Store } from '@ngrx/store';
 import { AppState } from './models/app-state';
-import { GetItemsAction, GetItemsFailureAction } from './vehicles.actions';
+import { GetItemsAction } from './vehicles.actions';
 
 @Component({
   selector: 'app-vehicles-board',
@@ -13,7 +13,7 @@ import { GetItemsAction, GetItemsFailureAction } from './vehicles.actions';
   styleUrls: ['./vehicles-board.component.scss']
 })
 export class VehiclesBoardComponent implements OnInit {
-  vehicleItems$: Observable<Array<Vehicle>>;
+  vehicleItems$: Observable<Vehicle[]>;
   mechanicItems$: Observable<Array<Mechanic>>;
   mechanicError$: Observable<Error>;
   vehicleError$: Observable<Error>;
@@ -27,6 +27,4 @@ export class VehiclesBoardComponent implements OnInit {
     this.mechanicError$ = this.store.select(store => store.mechanic.error);
   }
   constructor(private store: Store<AppState>) { }
-
-
 }
